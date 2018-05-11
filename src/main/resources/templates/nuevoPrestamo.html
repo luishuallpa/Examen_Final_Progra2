@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<title>Solicitar Prestamo</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10">
+			<form action="#" th:action="@{/prestamo/nuevo}" th:object="${prestamo}" method="post">
+				<table>
+					<tr>
+						<td>Nombre:</td>
+						<td><input type="text" th:field="*{nombre}"></td>
+						<td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Debe ingresar su nombre</td>
+					</tr>
+					<tr>
+						<td>Apellido:</td>
+						<td><input type="text" th:field="*{apellido}"></td>
+						<td th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Debe ingresar su apellido</td>
+					</tr>
+					<tr>
+						<td>DNI:</td>
+						<td><input type="text" th:field="*{dni}"></td>
+						<td th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}">Debe ingresar su DNI</td>
+					</tr>
+					<tr>
+						<td>Ingreso Mensual:</td>
+						<td><input type="text" th:field="*{ingresoMensual}"></td>
+						<td th:if="${#fields.hasErrors('ingresoMensual')}" th:errors="*{ingresoMensual}">Debe ingresar su Ingreso Mensual</td>
+					</tr>
+					<tr>
+						<td>Gasto Mensual:</td>
+						<td><input type="text" th:field="*{gastoMensual}"></td>
+						<td th:if="${#fields.hasErrors('gastoMensual')}" th:errors="*{gastoMensual}">Debe ingresar su Gastos Mensual</td>
+					</tr>
+					<tr>
+						<td>Hobby:</td>
+						<td><input type="text" th:field="*{hobby}"></td>
+						<td th:if="${#fields.hasErrors('hobby')}" th:errors="*{hobby}">Debe ingresar su Hobby</td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="Evaluar">
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
