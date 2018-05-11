@@ -40,6 +40,7 @@ public class PrestamoController {
 		prestamo.setResultado(1000);
 		prestamoRepository.save(prestamo);
 		return "resultado";
+		//return "nuevoPrestamo";
 	}
 	
 	//Buscar
