@@ -12,4 +12,6 @@ public interface PrestamoRepository extends Repository<Prestamo, Integer> {
 	List<Prestamo> findAll();
 
 	Prestamo findById(Integer id);
+	//Buscar
+	Prestamo findBydni(String dni);
 }

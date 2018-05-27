@@ -2,6 +2,8 @@ package com.prestamo.web;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,7 @@ public class PrestamoController {
 
 	@PostMapping("/prestamo/nuevo")
 	public String submitForm(@Valid Prestamo prestamo, BindingResult bindingResult) {
+
 		if (bindingResult.hasFieldErrors()) {
 			return "nuevoPrestamo";
 		}
@@ -41,10 +44,8 @@ public class PrestamoController {
 		return "resultado";
 		// return "nuevoPrestamo";
 	}
-
-	// Buscar
-	// @GetMapping("/prestamo/buscar")
-	// public String buscar(@PathVariable("prestamoId") int prestamo, Model model){
-	// return "";
-	// }
+	@GetMapping("/prestamo/buscar")
+	public String buscarInit() {
+		return "buscarPrestamo";
+	}
 }
