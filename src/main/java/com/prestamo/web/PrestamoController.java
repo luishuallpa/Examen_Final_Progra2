@@ -39,13 +39,20 @@ public class PrestamoController {
 		if (bindingResult.hasFieldErrors()) {
 			return "nuevoPrestamo";
 		}
-		prestamo.setResultado(1000);
 		prestamoRepository.save(prestamo);
 		return "resultado";
 		// return "nuevoPrestamo";
 	}
 	@GetMapping("/prestamo/buscar")
-	public String buscarInit() {
+	public String buscarInit(Model model) {
+		model.addAttribute("prestamo", new Prestamo());
 		return "buscarPrestamo";
+	}
+	@PostMapping("/prestamo/buscar")
+	public String resultadoBuscado(Map<String, Object> model, Prestamo prestamo) {
+	    String dni = prestamo.getDni();
+		prestamo = prestamoRepository.findBydni(dni);
+		model.put("prestamo", prestamo);
+		return "resultadoBuscado";
 	}
 }

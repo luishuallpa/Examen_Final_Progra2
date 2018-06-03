@@ -47,21 +47,30 @@
 					</div>
 					<div class="form-group">
 
-						Correo: <input type="text" class="form-control"
-							th:field="*{correo}">
-						<div th:if="${#fields.hasErrors('correo')}"
-							th:errors="*{correo}" class="text-danger">Debe
-							ingresar su correo</div>
+						Ingreso Mensual: <input type="text" class="form-control"
+							th:field="*{ingresoMensual}">
+						<div th:if="${#fields.hasErrors('ingresoMensual')}"
+							th:errors="*{ingresoMensual}" class="text-danger">Debe
+							ingresar su Ingreso Mensual</div>
+					</div>
 					<div class="form-group">
 
-						Sueldo: <input type="text" class="form-control"
-							th:field="*{sueldo}">
-						<div th:if="${#fields.hasErrors('sueldo')}"
-							th:errors="*{suledo}" class="text-danger">Debe
-							ingresar su sueldo</div>
-				</form>
-				<br> <input type="submit" class="btn btn-secondary"
+						Gasto Mensual: <input type="text" class="form-control"
+							th:field="*{gastoMensual}">
+						<div th:if="${#fields.hasErrors('gastoMensual')}"
+							th:errors="*{gastoMensual}" class="text-danger">Debe
+							ingresar su Gastos Mensual</div>
+					</div>
+					<div class="form-group">
+
+						Hobby: <input type="text" class="form-control" th:field="*{hobby}">
+						<div th:if="${#fields.hasErrors('hobby')}" th:errors="*{hobby}"
+							class="text-danger">Debe ingresar su Hobby</div>
+
+					</div>
+					<br> <input type="submit" class="btn btn-secondary"
 						value="Evaluar">
+				</form>
 			</div>
 		</div>
 	</div>

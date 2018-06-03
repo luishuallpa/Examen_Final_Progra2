@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -24,14 +25,9 @@ public class Prestamo implements Serializable {
 	@NotNull(message = "Debe ingresar su DNI.")
 	@Size(min = 7, max = 8, message = "El DNI es de 8 digitos.")
 	private String dni;
-	@Min(930)
-	private double ingresoMensual;
-	@Min(930)
-	private double gastoMensual;
-	@NotNull(message = "Debe ingresar su hobby.")
-	@Size(min = 2, max = 40, message = "No reconoce este hobby. Se más preciso.")
-	private String hobby;
-	private Integer Resultado;
+	@Email
+	private String correo;
+	private double sueldo;
 
 	public Integer getId() {
 		return id;
@@ -65,35 +61,20 @@ public class Prestamo implements Serializable {
 		this.dni = dni;
 	}
 
-	public double getIngresoMensual() {
-		return ingresoMensual;
+	public String getCorreo() {
+		return correo;
 	}
 
-	public void setIngresoMensual(double ingresoMensual) {
-		this.ingresoMensual = ingresoMensual;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
-	public double getGastoMensual() {
-		return gastoMensual;
+	public double getSueldo() {
+		return sueldo;
 	}
 
-	public void setGastoMensual(double gastoMensual) {
-		this.gastoMensual = gastoMensual;
+	public void setSueldo(double sueldo) {
+		this.sueldo = sueldo;
 	}
-
-	public String getHobby() {
-		return hobby;
-	}
-
-	public void setHobby(String hobby) {
-		this.hobby = hobby;
-	}
-
-	public Integer getResultado() {
-		return Resultado;
-	}
-
-	public void setResultado(Integer resultado) {
-		Resultado = resultado;
-	}
+	
 }
