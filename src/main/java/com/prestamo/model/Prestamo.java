@@ -25,10 +25,12 @@ public class Prestamo implements Serializable {
 	@NotNull(message = "Debe ingresar su DNI.")
 	@Size(min = 7, max = 8, message = "El DNI es de 8 digitos.")
 	private String dni;
+	private Boolean planilla;
 	@Email
 	private String correo;
+	@Min(930)
 	private double sueldo;
-
+	private double ImpRentaPagar;
 	public Integer getId() {
 		return id;
 	}
@@ -76,5 +78,20 @@ public class Prestamo implements Serializable {
 	public void setSueldo(double sueldo) {
 		this.sueldo = sueldo;
 	}
-	
+
+	public Boolean getPlanilla() {
+		return planilla;
+	}
+
+	public void setPlanilla(Boolean planilla) {
+		this.planilla = planilla;
+	}
+
+	public double getImpRentaPagar() {
+		return ImpRentaPagar;
+	}
+
+	public void setImpRentaPagar(double ImpRentaPagar) {
+		this.ImpRentaPagar = ImpRentaPagar;
+	}
 }

@@ -46,12 +46,16 @@
 							class="text-danger">Debe ingresar su DNI</div>
 					</div>
 					<div class="form-group">
-
+						<input type="checkbox"
+							th:field="*{planilla}"> Figura en Planilla
+					</div>
+					<div class="form-group">
 						Correo: <input type="text" class="form-control"
 							th:field="*{correo}">
 						<div th:if="${#fields.hasErrors('correo')}"
 							th:errors="*{correo}" class="text-danger">Debe
 							ingresar su correo</div>
+					</div>
 					<div class="form-group">
 
 						Sueldo: <input type="text" class="form-control"
@@ -59,9 +63,10 @@
 						<div th:if="${#fields.hasErrors('sueldo')}"
 							th:errors="*{suledo}" class="text-danger">Debe
 							ingresar su sueldo</div>
-				</form>
-				<br> <input type="submit" class="btn btn-secondary"
+					</div>
+					<br> <input type="submit" class="btn btn-secondary"
 						value="Evaluar">
+				</form>
 			</div>
 		</div>
 	</div>

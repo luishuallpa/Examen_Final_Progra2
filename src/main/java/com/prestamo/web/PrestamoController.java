@@ -2,7 +2,6 @@ package com.prestamo.web;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.prestamo.model.Prestamo;
 import com.prestamo.repository.PrestamoRepository;
-
+import com.prestamo.clases.Method;
 @Controller
 public class PrestamoController {
 	@Autowired
@@ -39,6 +38,8 @@ public class PrestamoController {
 		if (bindingResult.hasFieldErrors()) {
 			return "nuevoPrestamo";
 		}
+		Method method = new Method();
+		prestamo.setImpRentaPagar(method.impuestoPagar(prestamo.getSueldo(), prestamo.getPlanilla()));
 		prestamoRepository.save(prestamo);
 		return "resultado";
 		// return "nuevoPrestamo";
