@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -16,21 +15,22 @@ public class Prestamo implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	@NotNull
+	@Size(min=8, max=8, message="Debe ingresar su DNI")
+	private String dni;
 	@NotNull(message = "Debe ingresar su nombre.")
 	@Size(min = 2, max = 40, message = "Nombre es muy corto o muy largo")
 	private String nombre;
 	@NotNull(message = "Debe ingresar su apellido.")
 	@Size(min = 2, max = 40, message = "Apellido es muy corto o muy largo")
 	private String apellido;
-	@NotNull(message = "Debe ingresar su DNI.")
-	@Size(min = 7, max = 8, message = "El DNI es de 8 digitos.")
-	private String dni;
 	private Boolean planilla;
 	@Email
 	private String correo;
 	@Min(930)
 	private double sueldo;
 	private double ImpRentaPagar;
+	private Boolean envio;
 	public Integer getId() {
 		return id;
 	}
@@ -93,5 +93,13 @@ public class Prestamo implements Serializable {
 
 	public void setImpRentaPagar(double ImpRentaPagar) {
 		this.ImpRentaPagar = ImpRentaPagar;
+	}
+
+	public Boolean getEnvio() {
+		return envio;
+	}
+
+	public void setEnvio(Boolean envio) {
+		this.envio = envio;
 	}
 }

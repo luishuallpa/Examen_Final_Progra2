@@ -18,13 +18,13 @@ import com.prestamo.clases.Method;
 public class PrestamoController {
 	@Autowired
 	PrestamoRepository prestamoRepository;
-
+	/*
 	@GetMapping("/prestamo/listar")
 	public String list(Map<String, Object> model) {
 		List<Prestamo> prestamo = prestamoRepository.findAll();
 		model.put("prestamo", prestamo);
 		return "listaPrestamo";
-	}
+	}*/
 
 	@GetMapping("/prestamo/nuevo")
 	public String initCreationForm(Model model) {
@@ -55,5 +55,20 @@ public class PrestamoController {
 		prestamo = prestamoRepository.findBydni(dni);
 		model.put("prestamo", prestamo);
 		return "resultadoBuscado";
+	}
+	@GetMapping("/prestamo/listar")
+	public String generador(Map<String, Object> model) {
+		List<Prestamo> prestamo = prestamoRepository.findAll();
+		model.put("prestamo", prestamo);
+		return "interfazGeneradorPrestamo";
+	}
+	@PostMapping("/prestamo/listar")
+	public String correoGenerado(Map<String, Object> model) {
+		List<Prestamo> prestamo = prestamoRepository.findAll();
+		for(Prestamo i: prestamo) {
+			
+		}
+		model.put("prestamo", prestamo);
+		return "interfazGeneradorPrestamo";
 	}
 }
