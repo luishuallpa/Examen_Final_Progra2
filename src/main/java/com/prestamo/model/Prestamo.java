@@ -30,7 +30,6 @@ public class Prestamo implements Serializable {
 	@Min(930)
 	private double sueldo;
 	private double ImpRentaPagar;
-	private Boolean envio;
 	public Integer getId() {
 		return id;
 	}
@@ -93,13 +92,5 @@ public class Prestamo implements Serializable {
 
 	public void setImpRentaPagar(double ImpRentaPagar) {
 		this.ImpRentaPagar = ImpRentaPagar;
-	}
-
-	public Boolean getEnvio() {
-		return envio;
-	}
-
-	public void setEnvio(Boolean envio) {
-		this.envio = envio;
 	}
 }

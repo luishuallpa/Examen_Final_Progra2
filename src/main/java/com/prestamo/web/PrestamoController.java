@@ -2,6 +2,7 @@ package com.prestamo.web;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,9 +65,16 @@ public class PrestamoController {
 	}
 	@PostMapping("/prestamo/listar")
 	public String correoGenerado(Map<String, Object> model) {
+		Method clases = new Method();
 		List<Prestamo> prestamo = prestamoRepository.findAll();
 		for(Prestamo i: prestamo) {
-			
+			Random r = new Random();
+			if(r.nextBoolean()) {
+		       String destinatario =  i.getCorreo(); //A quien le quieres escribir.
+		       String asunto = "Correo de prueba enviado desde Java";
+		       String cuerpo = "Esta es una prueba de correo...";
+		       clases.mail(destinatario, asunto, cuerpo);
+			}
 		}
 		model.put("prestamo", prestamo);
 		return "interfazGeneradorPrestamo";
