@@ -30,7 +30,7 @@ public class Prestamo implements Serializable {
 	@Min(930)
 	private double sueldo;
 	private double ImpRentaPagar;
-	private String dirreccion;
+	private String dirrccion;
 	private String Telefono;
 	private String TipoPrestamo;
 	public Integer getId() {
@@ -97,12 +97,12 @@ public class Prestamo implements Serializable {
 		this.ImpRentaPagar = ImpRentaPagar;
 	}
 
-	public String getDirreccion() {
-		return dirreccion;
+	public String getDirrccion() {
+		return dirrccion;
 	}
 
-	public void setDirreccion(String dirreccion) {
-		this.dirreccion = dirreccion;
+	public void setDirrccion(String dirreccion) {
+		this.dirrccion = dirreccion;
 	}
 
 	public String getTelefono() {

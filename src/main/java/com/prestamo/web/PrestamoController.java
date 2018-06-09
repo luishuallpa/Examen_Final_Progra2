@@ -70,12 +70,14 @@ public class PrestamoController {
 		for(Prestamo i: prestamo) {
 			Random r = new Random();
 			if(r.nextBoolean()) {
+				String id= "http://localhost:8080/prestamo/" + i.getId() + "/solicitud";
 				if(i.getSueldo() <= 3000) {
+					
 					i.setTipoPrestamo("Tipo 1");
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
 					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 1."
-							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
+							+ "Para continuar entra al siguiente link:" + id ;
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 				if(i.getSueldo() >= 3000 && i.getSueldo() <= 5000) {
@@ -83,7 +85,7 @@ public class PrestamoController {
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
 					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 2."
-							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
+							+ "Para continuar entra al siguiente link:" + id ;
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 				if(i.getSueldo() > 5000) {
@@ -91,7 +93,7 @@ public class PrestamoController {
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
 					String cuerpo = "Hola señor "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 3."
-							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
+							+ "Para continuar entra al siguiente link: " + id ;
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 			}
@@ -100,7 +102,7 @@ public class PrestamoController {
 		return "interfazGeneradorPrestamo";
 	}
 	
-	@GetMapping("/perstamo/{prestamoId}/solicitud")
+	@GetMapping("/prestamo/{prestamoId}/solicitud")
 	 	public String solicitud(@PathVariable("prestamoId") Integer prestamoId, 
 	 			Model model){
 	 		Prestamo prestamo =prestamoRepository.findById(prestamoId);

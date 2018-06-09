@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Complete el siguiente formulario</title>
@@ -14,9 +14,9 @@
  			<td>Direccion:</td>
  			<td>
  			<input type="hidden" th:field="*{id}"/>
- 			<input type="text" th:field="*{dirrecion}"/></td>
- 			<td th:if="${#fields.hasErrors('dirrecion')}"
- 			    th:errors="*{dirrecion}">Nombre Error</td>
+ 			<input type="text" th:field="*{dirrcion}"/></td>
+ 			<td th:if="${#fields.hasErrors('dirrcion')}"
+ 			    th:errors="*{dirrcion}">Nombre Error</td>
  		</tr>
  		 <tr>
  			<td>Telefono:</td>
