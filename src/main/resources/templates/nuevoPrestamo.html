@@ -23,46 +23,49 @@
 				<form action="#" th:action="@{/prestamo/nuevo}"
 					th:object="${prestamo}" method="post">
 
-					<div class="form-group">
-
-						Nombre: <input type="text" class="form-control"
-							th:field="*{nombre}">
-						<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
-							class="text-danger">Debe ingresar su nombre</div>
-
+					<div class="form-group row">
+						<div class="col-xs-6">
+							Nombre: <input type="text" class="form-control"
+								th:field="*{nombre}">
+							<div th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+								class="text-danger">Debe ingresar su nombre</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							Apellido: <input type="text" class="form-control"
+								th:field="*{apellido}">
+							<div th:if="${#fields.hasErrors('apellido')}"
+								th:errors="*{apellido}" class="text-danger">Debe ingresar
+								su apellido</div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							DNI: <input type="text" class="form-control" th:field="*{dni}">
+							<div th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"
+								class="text-danger">Debe ingresar su DNI</div>
+						</div>
 					</div>
 					<div class="form-group">
-
-						Apellido: <input type="text" class="form-control"
-							th:field="*{apellido}">
-						<div th:if="${#fields.hasErrors('apellido')}"
-							th:errors="*{apellido}" class="text-danger">Debe ingresar
-							su apellido</div>
+						<input type="checkbox" th:field="*{planilla}"> Figura en
+						Planilla
 					</div>
-					<div class="form-group">
-
-						DNI: <input type="text" class="form-control" th:field="*{dni}">
-						<div th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"
-							class="text-danger">Debe ingresar su DNI</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							Correo: <input type="text" class="form-control"
+								th:field="*{correo}">
+							<div th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"
+								class="text-danger">Debe ingresar su correo</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<input type="checkbox"
-							th:field="*{planilla}"> Figura en Planilla
-					</div>
-					<div class="form-group">
-						Correo: <input type="text" class="form-control"
-							th:field="*{correo}">
-						<div th:if="${#fields.hasErrors('correo')}"
-							th:errors="*{correo}" class="text-danger">Debe
-							ingresar su correo</div>
-					</div>
-					<div class="form-group">
-
-						Sueldo: <input type="text" class="form-control"
-							th:field="*{sueldo}">
-						<div th:if="${#fields.hasErrors('sueldo')}"
-							th:errors="*{suledo}" class="text-danger">Debe
-							ingresar su sueldo</div>
+					<div class="form-group row">
+						<div class="col-xs-6">
+							Sueldo: <input type="text" class="form-control"
+								th:field="*{sueldo}">
+							<div th:if="${#fields.hasErrors('sueldo')}" th:errors="*{suledo}"
+								class="text-danger">Debe ingresar su sueldo</div>
+						</div>
 					</div>
 					<br> <input type="submit" class="btn btn-secondary"
 						value="Evaluar">
