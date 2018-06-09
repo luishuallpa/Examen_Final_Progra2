@@ -21,11 +21,8 @@
 			<div class="col-lg-10">
 				<div class="form-group row">
 					<div class="col-xs-6">
-					<form action="#" th:action="@{/prestamo/buscar}"
-						th:object="${prestamo}" method="post">
-
+					<form action="#" th:action="@{/prestamo/buscar}" th:object="${prestamo}" method="post">
 						DNI: <input type="text" class="form-control" th:field="*{dni}">
-
 					</form>
 					</div>
 				</div>
