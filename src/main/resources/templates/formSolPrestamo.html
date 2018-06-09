@@ -5,6 +5,35 @@
 <title>Complete el siguiente formulario</title>
 </head>
 <body>
-
+	<form action="#" th:object="${prestamo}" th:action="@{'/prestamo/__${prestamo.id}__/solicitud'}"  method="post">
+ 	<table>
+ 		
+ 		
+ 
+ 		<tr>
+ 			<td>Direccion:</td>
+ 			<td>
+ 			<input type="hidden" th:field="*{id}"/>
+ 			<input type="text" th:field="*{dirrecion}"/></td>
+ 			<td th:if="${#fields.hasErrors('dirrecion')}"
+ 			    th:errors="*{dirrecion}">Nombre Error</td>
+ 		</tr>
+ 		 <tr>
+ 			<td>Telefono:</td>
+ 			<td>
+ 			<input type="text" th:field="*{Telefono}"/></td>
+ 			<td th:if="${#fields.hasErrors('Telefono')}"
+ 			    th:errors="*{Telefono}">Nombre Error</td>
+ 		</tr>
+ 		<tr>
+ 			<td></td>
+ 			<td><input type="submit" value="Confirmar Prestamo"/>
+ 				<input type="reset" value="cancelar"/></td>
+ 			<td></td>
+ 		</tr>
+ 	</table>
+ 
+ 
+ </form>
 </body>
 </html>

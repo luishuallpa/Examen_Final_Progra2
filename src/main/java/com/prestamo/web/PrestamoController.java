@@ -71,21 +71,27 @@ public class PrestamoController {
 			Random r = new Random();
 			if(r.nextBoolean()) {
 				if(i.getSueldo() <= 3000) {
+					i.setTipoPrestamo("Tipo 1");
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
-					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 1";
+					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 1."
+							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 				if(i.getSueldo() >= 3000 && i.getSueldo() <= 5000) {
+					i.setTipoPrestamo("Tipo 2");
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
-					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 2";
+					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 2."
+							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 				if(i.getSueldo() > 5000) {
+					i.setTipoPrestamo("Tipo 3");
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
-					String cuerpo = "Hola señor "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 3";
+					String cuerpo = "Hola señor "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 3."
+							+ "Para continuar entra al siguiente link: localhost:8080/prestamo/" + i.getId() + "/solicitud";
 					clases.mail(destinatario, asunto, cuerpo);
 				}
 			}
@@ -93,4 +99,25 @@ public class PrestamoController {
 		model.put("prestamo", prestamo);
 		return "interfazGeneradorPrestamo";
 	}
+	
+	@GetMapping("/perstamo/{prestamoId}/solicitud")
+	 	public String edit(@PathVariable("prestamoId") Integer prestamoId, 
+	 			Model model){
+	 		Prestamo prestamo =prestamoRepository.findById(prestamoId);
+	 		model.addAttribute(prestamo);
+	 		return "formSolPrestamo";
+	 	}
+	 	
+	 	@PostMapping("/prestamo/{prestamoId}/solicitud")
+	 	public String update(
+	 			@Valid Prestamo prestamo,
+	 			BindingResult bindingResult,
+	 			@PathVariable("prestamoId") Integer prestamoId){
+	 		if(bindingResult.hasFieldErrors()) {
+	 			return "redirect:/person/{prestamoId}/solicitud";
+	 		}
+	 		prestamo.setId(prestamoId);
+	 		prestamoRepository.save(prestamo);
+	 		return "redirect:/";
+	 	}
 }
