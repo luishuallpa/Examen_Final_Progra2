@@ -3,19 +3,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Buscar Prestamo</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<center>
+	<div class="container">
+
 		<h1>Buscar Prestamo</h1>
-	</center>
-	<form>
-		<table>
-			<tr>
-				<td>DNI:</td>
-				<td><input type="text"></td>
-			</tr>
-		</table>
+
+		<div class="row">
+			<div class="col-lg-10">
+				<div class="form-group row">
+					<div class="col-xs-6">
+					<form action="#" th:action="@{/prestamo/buscar}"
+						th:object="${prestamo}" method="post">
+
+						DNI: <input type="text" class="form-control" th:field="*{dni}">
+
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
 		<input type="submit" value="Buscar">
-	</form>
+		</form>
+	</div>
 </body>
 </html>

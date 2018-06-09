@@ -56,10 +56,10 @@ public class Method {
 	
 	public void mail(String destinatario, String asunto, String cuerpo) {
 		    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
-		    String remitente = "toluisrre94@gmail.com";  //Para la dirección nomcuenta@gmail.com
+		    String remitente = "proyectoprogra2018@gmail.com";  //Para la dirección nomcuenta@gmail.com
 
 		    Properties props = System.getProperties();
-		    props.put("mail.smtp.user","toluisrre94@gmail.com"); 
+		    props.put("mail.smtp.user","proyectoprogra2018@gmail.com"); 
 		    props.put("mail.smtp.host", "smtp.gmail.com"); 
 		    props.put("mail.smtp.port", "25"); 
 		    props.put("mail.debug", "true"); 
@@ -82,7 +82,7 @@ public class Method {
 		        message.setSubject(asunto);
 		        message.setText(cuerpo);
 		        Transport transport = session.getTransport("smtp");
-		        transport.connect("smtp.gmail.com", remitente,"luisALBERTOHU-1");
+		        transport.connect("smtp.gmail.com", remitente,"AEIOU12345" );//Clave
 		        transport.sendMessage(message, message.getAllRecipients());
 		        transport.close();
 		    }

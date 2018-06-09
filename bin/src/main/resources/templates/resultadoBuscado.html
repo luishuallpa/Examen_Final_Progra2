@@ -2,13 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+<title>Resultado Buscado</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<title>Lista</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h1>Lista de Prestamos</h1>
+		<div class="row">
+			<div class="col-lg-10">
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -16,6 +23,8 @@
 					<th>Apellido</th>
 					<th>DNI</th>
 					<th>Correo</th>
+					<th>Planilla</th>
+					<th>Impuesto a la Renta a pagar</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -24,9 +33,13 @@
 					<td th:text="${prestamo.apellido}"></td>
 					<td th:text="${prestamo.dni}"></td>
 					<td th:text="${prestamo.correo}"></td>
+					<td th:text="${prestamo.planilla}"></td>
+					<td th:text="${prestamo.ImpRentaPagar}"></td>
 				</tr>
 			</tbody>
 		</table>
-	</div>
+		</div>
+		</div>
+		</div>
 </body>
 </html>

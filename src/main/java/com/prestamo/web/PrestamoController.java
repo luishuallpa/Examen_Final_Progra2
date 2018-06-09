@@ -70,10 +70,24 @@ public class PrestamoController {
 		for(Prestamo i: prestamo) {
 			Random r = new Random();
 			if(r.nextBoolean()) {
-		       String destinatario =  i.getCorreo(); //A quien le quieres escribir.
-		       String asunto = "Correo de prueba enviado desde Java";
-		       String cuerpo = "Esta es una prueba de correo...";
-		       clases.mail(destinatario, asunto, cuerpo);
+				if(i.getSueldo() <= 3000) {
+					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
+					String asunto = "Correo de prueba enviado desde Java";
+					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 1";
+					clases.mail(destinatario, asunto, cuerpo);
+				}
+				if(i.getSueldo() >= 3000 && i.getSueldo() <= 5000) {
+					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
+					String asunto = "Correo de prueba enviado desde Java";
+					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 2";
+					clases.mail(destinatario, asunto, cuerpo);
+				}
+				if(i.getSueldo() > 5000) {
+					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
+					String asunto = "Correo de prueba enviado desde Java";
+					String cuerpo = "Hola señor "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 3";
+					clases.mail(destinatario, asunto, cuerpo);
+				}
 			}
 		}
 		model.put("prestamo", prestamo);
