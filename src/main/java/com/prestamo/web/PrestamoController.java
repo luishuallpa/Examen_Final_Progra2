@@ -101,7 +101,7 @@ public class PrestamoController {
 	}
 	
 	@GetMapping("/perstamo/{prestamoId}/solicitud")
-	 	public String edit(@PathVariable("prestamoId") Integer prestamoId, 
+	 	public String solicitud(@PathVariable("prestamoId") Integer prestamoId, 
 	 			Model model){
 	 		Prestamo prestamo =prestamoRepository.findById(prestamoId);
 	 		model.addAttribute(prestamo);
@@ -109,7 +109,7 @@ public class PrestamoController {
 	 	}
 	 	
 	 	@PostMapping("/prestamo/{prestamoId}/solicitud")
-	 	public String update(
+	 	public String confirmacion(
 	 			@Valid Prestamo prestamo,
 	 			BindingResult bindingResult,
 	 			@PathVariable("prestamoId") Integer prestamoId){
