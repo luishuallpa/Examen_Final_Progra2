@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.prestamo.model.Prestamo;
 import com.prestamo.repository.PrestamoRepository;
+
 import com.prestamo.clases.Method;
 @Controller
 public class PrestamoController {
@@ -101,25 +102,20 @@ public class PrestamoController {
 		model.put("prestamo", prestamo);
 		return "interfazGeneradorPrestamo";
 	}
-	
 	@GetMapping("/prestamo/{prestamoId}/solicitud")
-	 	public String solicitud(@PathVariable("prestamoId") Integer prestamoId, 
-	 			Model model){
-	 		Prestamo prestamo =prestamoRepository.findById(prestamoId);
-	 		model.addAttribute(prestamo);
-	 		return "formSolPrestamo";
-	 	}
-	 	
-	 	@PostMapping("/prestamo/{prestamoId}/solicitud")
-	 	public String confirmacion(
-	 			@Valid Prestamo prestamo,
-	 			BindingResult bindingResult,
-	 			@PathVariable("prestamoId") Integer prestamoId){
-	 		if(bindingResult.hasFieldErrors()) {
-	 			return "redirect:/person/{prestamoId}/solicitud";
-	 		}
-	 		prestamo.setId(prestamoId);
-	 		prestamoRepository.save(prestamo);
-	 		return "redirect:/";
-	 	}
+	public String edit(@PathVariable("prestamoId") int prestamoId, 
+			Model model){
+		Prestamo prestamo =prestamoRepository.findById(prestamoId);
+		model.addAttribute(prestamo);
+		return "formSolPrestamo";
+	}
+	@PostMapping("/prestamo/{prestamoId}/solicitud")
+	public String update(
+			@Valid Prestamo prestamo,
+			BindingResult bindingResult,
+			@PathVariable("prestamoId") int prestamoId){
+		prestamo.setId(prestamoId);		
+		prestamoRepository.save(prestamo);
+		return "redirect:/prestamo/buscar";
+	}
 }
