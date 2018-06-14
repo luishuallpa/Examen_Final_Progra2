@@ -41,6 +41,7 @@ public class PrestamoController {
 			return "nuevoPrestamo";
 		}
 		Method method = new Method();
+		prestamo.setTipoPrestamo("No esta habilitado para ningún prestamo al momento.");
 		prestamo.setImpRentaPagar(method.impuestoPagar(prestamo.getSueldo(), prestamo.getPlanilla()));
 		prestamoRepository.save(prestamo);
 		return "resultado";
@@ -78,16 +79,18 @@ public class PrestamoController {
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
 					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 1."
-							+ "Para continuar entra al siguiente link:" + id ;
+							+ "Para continuar entra al siguiente link: " + id ;
 					clases.mail(destinatario, asunto, cuerpo);
+					prestamoRepository.save(i);
 				}
 				if(i.getSueldo() >= 3000 && i.getSueldo() <= 5000) {
 					i.setTipoPrestamo("Tipo 2");
 					String destinatario =  i.getCorreo(); //A quien le quieres escribir.
 					String asunto = "Correo de prueba enviado desde Java";
 					String cuerpo = "Hola señor@ "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 2."
-							+ "Para continuar entra al siguiente link:" + id ;
+							+ "Para continuar entra al siguiente link: " + id ;
 					clases.mail(destinatario, asunto, cuerpo);
+					prestamoRepository.save(i);
 				}
 				if(i.getSueldo() > 5000) {
 					i.setTipoPrestamo("Tipo 3");
@@ -96,6 +99,7 @@ public class PrestamoController {
 					String cuerpo = "Hola señor "+ i.getNombre() + " "+ i.getApellido() +". Ha recibido el prestamo tipo 3."
 							+ "Para continuar entra al siguiente link: " + id ;
 					clases.mail(destinatario, asunto, cuerpo);
+					prestamoRepository.save(i);
 				}
 			}
 		}

@@ -23,12 +23,12 @@
 					<div class="col-xs-6">
 					<form action="#" th:action="@{/prestamo/buscar}" th:object="${prestamo}" method="post">
 						DNI: <input type="text" class="form-control" th:field="*{dni}">
+						<input type="submit" value="Buscar">
 					</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<input type="submit" value="Buscar">
 	</div>
 </body>
 </html>
