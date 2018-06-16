@@ -11,5 +11,5 @@ public interface UsuarioRepository extends Repository<Usuario,Integer>{
 	List<Usuario> findAll();
 	Usuario findByUsername(String username);
 	Usuario findByPassword(String password);
-	Usuario findByAdmin(String admin);
+	//Usuario findByAdmin(String admin);
 }
