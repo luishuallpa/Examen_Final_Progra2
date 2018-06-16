@@ -1,71 +1,98 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="ISO-8859-1">
 <title>Complete el siguiente formulario</title>
+<style>
+	body{
+		background-color: rgb(33,82,86);
+
+	}
+	#contain div{
+		background-color: rgb(99,177,177);		
+	}
+	#title div{
+		background-color: rgb(153,204,204);
+		text-align: center;
+		padding-bottom: 5%;
+		padding-top: 5%;		
+	}
+</style>
 </head>
 <body>
-	<form action="#" th:object="${prestamo}" th:action="@{'/prestamo/__${prestamo.id}__/solicitud'}"  method="post">
- 	<table>
- 	 	<tr hidden>
- 			<td>Nombre:</td>
- 			<td>
- 			<input type="text" th:field="*{nombre}" th:text="prestamo.nombre"/></td>
- 		</tr>
- 		<tr hidden>
- 			<td>Apellido:</td>
- 			<td>
- 			<input type="text" th:field="*{apellido}" th:text="prestamo.apellido"/></td>
- 		</tr>
- 		<tr hidden>
- 			<td>DNI:</td>
- 			<td>
- 			<input type="text" th:field="*{dni}" th:text="prestamo.dni"/></td>
- 		</tr>
- 		<tr hidden>
- 			<td>Correo:</td>
- 			<td>
- 			<input type="text" th:field="*{correo}" th:text="prestamo.correo"/></td>
- 		</tr>
- 		 <tr hidden>
- 			<td>Sueldo:</td>
- 			<td>
- 			<input type="text" th:field="*{sueldo}" th:text="prestamo.sueldo"/></td>
- 		</tr>
- 		 <tr hidden>
- 			<td>Planilla:</td>
- 			<td>
- 			<input type="text" th:field="*{planilla}" th:text="prestamo.panilla"/></td>
- 		</tr>
- 		<tr hidden>
- 			<td>Impuesto:</td>
- 			<td>
- 			<input type="text" th:field="*{ImpRentaPagar}" th:text="prestamo.ImpRentaPagar"/></td>
- 		</tr>
- 		 <tr hidden>
- 			<td>Tipo Prestamo:</td>
- 			<td>
- 			<input type="text" th:field="*{TipoPrestamo}" th:text="prestamo.TipoPrestamo"/></td>
- 		</tr>
- 		<tr>
- 			<td>Direccion:</td>
- 			<td>
- 			<input type="text" th:field="*{direccion}"/></td>
- 		</tr>
- 		 <tr>
- 			<td>Telefono:</td>
- 			<td>
- 			<input type="text" th:field="*{Telefono}"/></td>
- 		</tr>
- 		<tr>
- 			<td></td>
- 			<td><input type="submit" value="Confirmar Prestamo"/>
- 				<input type="reset" value="cancelar"/></td>
- 			<td></td>
- 		</tr>
- 	</table>
- 
- 
- </form>
+	<div id="contain" class="container">
+		<div id="title"class="row">
+			<div class="col-lg-12">
+				<h1>Ingrese sus datos para confirmar su prestamo</h1>
+			</div>
+		</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="#" th:object="${prestamo}" th:action="@{'/prestamo/__${prestamo.id}__/solicitud'}"  method="post">
+ 		 		<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Nombre: <input type="text" class="form-control" th:field="*{nombre}" th:text="prestamo.nombre"/>
+ 					</div>
+ 				</div>
+ 			 	<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Apellido: <input type="text" class="form-control" th:field="*{apellido}" th:text="prestamo.apellido"/>
+ 					</div>
+ 				</div>
+ 			 	<div class="form-group row" hidden>
+	 				<div class="col-xs-6">
+ 						DNI: <input type="text" class="form-control" th:field="*{dni}" th:text="prestamo.dni"/>
+ 					</div>
+ 				</div>
+ 			 	<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Correo: <input type="text" class="form-control" th:field="*{correo}" th:text="prestamo.correo"/>
+ 					</div>
+ 				</div>
+ 		 		<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Sueldo: <input type="text" class="form-control" th:field="*{sueldo}" th:text="prestamo.sueldo"/>
+ 					</div>
+ 				</div>
+ 		 		<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Planilla: <input type="text" class="form-control" th:field="*{planilla}" th:text="prestamo.planilla"/>
+ 					</div>
+ 				</div>
+ 			 	<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Impuesto Renta a Pagar: <input type="text" class="form-control" th:field="*{ImpRentaPagar}" th:text="prestamo.ImpRentaPagar"/>
+ 					</div>
+ 				</div>
+ 	 			<div class="form-group row" hidden>
+ 					<div class="col-xs-6">
+ 						Tipo de Prestamo: <input type="text" class="form-control" th:field="*{TipoPrestamo}" th:text="prestamo.TipoPrestamo"/>
+ 					</div>
+ 				</div>
+ 			 	<div class="form-group row">
+ 					<div class="col-xs-6">
+ 						Direccion <input type="text" class="form-control" th:field="*{direccion}"/>
+	 				</div>
+ 				</div>
+ 			 	<div class="form-group row">
+	 				<div class="col-xs-6">
+ 						Telefono: <input type="text" class="form-control" th:field="*{Telefono}"/>
+ 						</div>
+ 				</div>
+ 				<br>
+ 					<input type="submit" class="btn btn-primary" value="Confirmar Prestamo"/>
+ 					<input type="reset" class="btn btn-secondary" value="cancelar"/>
+	 		</form>
+	 	</div>
+ 	</div>
+ </div>
 </body>
 </html>

@@ -12,18 +12,35 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+	body{
+		background-color: rgb(33,82,86);
+
+	}
+	#contain div{
+		background-color: rgb(99,177,177);		
+	}
+	#title div{
+		background-color: rgb(153,204,204);
+		text-align: center;
+		padding-bottom: 5%;
+		padding-top: 5%;		
+	}
+</style>
 <body>
-	<div class="container">
-
-		<h1>Buscar Prestamo</h1>
-
+	<div id="contain"class="container">
+		<div id="title" class="row">
+			<div id="title"class="col-lg-12">
+				<h1>Buscar Prestamo</h1>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col-lg-10">
+			<div class="col-lg-12">
 				<div class="form-group row">
 					<div class="col-xs-6">
 					<form action="#" th:action="@{/prestamo/buscar}" th:object="${prestamo}" method="post">
 						DNI: <input type="text" class="form-control" th:field="*{dni}">
-						<input type="submit" value="Buscar">
+						<input type="submit" class="btn btn-primary"value="Buscar">
 					</form>
 					</div>
 				</div>

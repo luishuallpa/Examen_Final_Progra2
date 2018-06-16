@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <title>Solicitar Prestamo</title>
@@ -11,15 +12,32 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+	body{
+		background-color: rgb(33,82,86);
+
+	}
+	 #contain div{
+		background-color: rgb(99,177,177);		
+	}
+	#title div{
+		background-color: rgb(153,204,204);
+		text-align: center;
+		padding-bottom: 5%;
+		padding-top: 5%;		
+	}
+</style>
 </head>
 
 <body>
-	<div class="container">
-		<br>
-		<h1>Ver si puedes solicitar Prestamo</h1>
-		<br>
+	<div id="contain" class="container">
+		<div id="title"class="row">
+			<div class="col-lg-12">
+				<h1>Ver si puedes solicitar Prestamo</h1>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col-lg-10">
+			<div class="col-lg-12">
 				<form action="#" th:action="@{/prestamo/nuevo}"
 					th:object="${prestamo}" method="post">
 
@@ -67,7 +85,7 @@
 								class="text-danger">Debe ingresar su sueldo</div>
 						</div>
 					</div>
-					<br> <input type="submit" class="btn btn-secondary"
+					<br> <input type="submit" class="btn btn-primary"
 						value="Evaluar">
 				</form>
 			</div>
